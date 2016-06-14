@@ -4,7 +4,7 @@
 	html5up.net | @n33co
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html>
+<html ng-app="TuturnoApp">
 	<head>
 		<title>Tuturno</title>
 		<meta charset="utf-8" />
@@ -15,8 +15,8 @@
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	</head>
-	<body class="landing">
-		<div id="page-wrapper">
+	<body class="landing" ng-controller="loginController">
+		<div id="page-wrapper" style="display: none;">
 
 			<!-- Header -->
 				<header id="header">
@@ -33,29 +33,36 @@
 					<span class="image fit main"><img src="images/wall2.jpg" alt="" /></span>
 						<div class="content">
 							<!--<div class="6u 12u$(xsmall)">-->
-								<input name="name" id="name" value="" placeholder="Código" type="text">
-							<!--</div>--><p></p>
-								<input type="text" name="name" id="name" value="" placeholder="Contraseña" />
-								<p></p>
-								<ul class="actions">
-									<a href="App.html" class="button special fit small">Entrar</a>
-								</ul>
-							<p><br></br><br></br><br>¿Algún problema?</p>
+							<input name="name" id="name" value="" placeholder="Código" type="text" ng-model="usuario.codigo">
+							<!--</div>-->
+							<p style="color: #c0392b;" ng-show="usuario.hasError">{{usuario.error}}</p><p></p>
+							<input type="password" name="name" id="name" value="" placeholder="Contraseña" ng-model="usuario.contrasenia" />
+							<p></p>
+							<ul class="actions">
+								<button class="button special fit small" ng-click="login()">Entrar</button>
+							</ul>
+							<p style="margin-top: 10em;">¿Algún problema?</p>
 							<ul class="actions">
 								<a href="contact.html" class="button special fit small">Ayúdame</a>
 							</ul>
 						</div>
 		</div>
-
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
-
+		<script src="assets/bower_components/angular/angular.js"></script>
+		<script src="assets/bower_components/angular-cookies/angular-cookies.js"></script>
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/jquery.dropotron.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/skel.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+		<script src="assets/js/main.js"></script>
+		<script src="assets/js/main.angular.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$('#page-wrapper').show();
+			});
+		</script>
 	</body>
 </html>

@@ -4,7 +4,7 @@
 	html5up.net | @n33co
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html>
+<html ng-app="TuturnoApp">
 	<head>
 		<title>User - TuTurno</title>
 		<meta charset="utf-8" />
@@ -14,7 +14,7 @@
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	</head>
-	<body>
+	<body ng-controller="userController" style="display: none;">
 			<div id="page-wrapper">
 
 			<!-- Header -->
@@ -39,7 +39,7 @@
 					<div class="container">
 							<section>
 								<p>	<div class="4u  6u(xsmall)"><span class="image left"><img src="images/profile.jpg" alt="" /></span></div>
-									<h2>User Name</h2>
+									<h2>{{usuario.name}}</h2>
 									<h1>User Date Started.</h1>
 									User Info.</p>
 									
@@ -91,6 +91,8 @@
 				</footer>
 		</div>
 		<!-- Scripts -->
+			<script src="assets/bower_components/angular/angular.js"></script>
+			<script src="assets/bower_components/angular-cookies/angular-cookies.js"></script>
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
 			<script src="assets/js/jquery.dropotron.min.js"></script>
@@ -99,5 +101,11 @@
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/main.angular.js"></script>
+			<script type="text/javascript">
+				$(function(){
+					$('body').show();
+				});
+			</script>
 	</body>
 </html>
