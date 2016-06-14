@@ -11,6 +11,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="stylesheet" href="assets/style.css" />
+        <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	</head>
@@ -33,25 +35,30 @@
 						</ul>
 					</nav>
 				</header>
-
 			<!-- Main -->
-            <div class="">
-                <h1>Tu Turno</h1>
-                <div id="static-turn">
+            <div id='holo' style='display:block;'>
+                <button type="button" name="button" onclick="turn(), mostrar(), ocultar()" >Dame mi turno</button>
+            </div>
+            <div id='oculto' style='display:none;'>
+                <div class="generaldiv">
+                    <div class="">
+                        <h3>Tu Turno</h3>
+                        <div id="static-turn">
+                        </div>
+                    </div>
+                    <div class="">
+                        <h1>Turno en Vivo</h1>
+                        <div id="live-turn">
+                        </div>
+                    </div>
+                    <p>
+                        No te procupes <br/>
+                        Te avisaremos cuando tu turno se aproxime, <b>recuerda tener tus notificaciones activadas.</b><br/>
+                        <i>Se responsable y atiende tu turno cuando te corresponda.</i>
+                    </p>
+                    <div>Registration closes in <span id="time"></span> minutes!</div>
                 </div>
             </div>
-            <div class="">
-                <h2>Turno en Vivo</h2>
-                <div id="live-turn">
-                </div>
-            </div>
-            <p>
-                No te procupes <br/>
-                Te avisaremos cuando tu turno se aproxime, <b>recuerda tener tus notificaciones activadas.</b><br/>
-                <i>Se responsable y atiende tu turno cuando te corresponda.</i>
-            </p>
-            <div>Registration closes in <span id="time"></span> minutes!</div>
-
 		</div>
 
 		<!-- Scripts -->

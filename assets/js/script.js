@@ -1,6 +1,6 @@
 var turno = Math.floor(Math.random() * 7 + 10);
 var liveturn = Math.floor(Math.random() * 7 );
-var segundos =  Math.floor(Math.random() * 7 + 3);
+var segundos =  Math.floor(Math.random() * 7 + 10);
 var notificacionuno = Math.floor(turno / 2);
 var falta = (turno - liveturn);
 var bool = 0;
@@ -56,4 +56,12 @@ window.onload = function () {
     var fiveMinutes = segundos * 1,
         display = document.querySelector('#time');
     startTimer(fiveMinutes, display);
+};
+
+function mostrar() {
+document.getElementById('oculto').style.display = 'block';
+};
+
+function ocultar() {
+document.getElementById('holo').style.display = 'none';
 };
