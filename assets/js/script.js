@@ -1,4 +1,4 @@
-var turno = Math.floor(Math.random() * 7 + 10);
+var turno = Math.floor(Math.random() * 7 + liveturn);
 var liveturn = Math.floor(Math.random() * 7 );
 var segundos =  Math.floor(Math.random() * 7 + 10);
 var notificacionuno = Math.floor(turno / 2);
