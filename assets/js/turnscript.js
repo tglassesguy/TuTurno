@@ -1,12 +1,12 @@
 var turno = Math.floor(Math.random() * 7 + liveturn);
-var liveturn = 0;
+var primero = 0;
+var liveturn =  Math.floor(Math.random() * 7 + 10);
 var segundos =  Math.floor(Math.random() * 7 + 10);
 var notificacionuno = Math.floor(turno / 2);
 var falta = (turno - liveturn);
 var bool = 0;
 var notbool = 0;
 var otrosegundos = 60;
-var turns = document.getElementById("esto").innerHTML;
 
 function startTimer(duration, display) {
     var timer = duration, minutes, seconds;
@@ -21,9 +21,8 @@ function startTimer(duration, display) {
 
         if (--timer < 0) {
             timer = duration;
-            turns ++ ;
-            document.getElementById("generalturn").innerHTML = turns;
-            document.getElementById("live-turn").innerHTML = turns;
+            liveturn ++ ;
+            document.getElementById("generalturn").innerHTML = liveturn;
         };
 
         if (turno == liveturn) {
@@ -47,11 +46,14 @@ function startTimer(duration, display) {
 
 
     }, 1000);
-}
+};
+
 
 function inicio() {
-    document.getElementById("esto").innerHTML = liveturn;
-}
+    
+    document.getElementById("generalturn").innerHTML = primero;
+
+};
 
 function iniciar () {
     var fiveMinutes = segundos * 1,
@@ -60,11 +62,12 @@ function iniciar () {
 
 };
 
-function prueba() {
+
+/* function prueba() {
 
     document.getElementById("userturn").innerHTML = turns;
 
-};
+}; */
 
 
 function turn() {
@@ -72,9 +75,9 @@ function turn() {
 };
 
 
-function colocar() {
+/* function colocar() {
     document.getElementById("static-turn").innerHTML = turns;
-}
+}*/
 
 function mostrar() {
 document.getElementById('oculto').style.display = 'block';
