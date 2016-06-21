@@ -35,7 +35,6 @@
 #superboton:active {
   box-shadow: inset 0 5px 30px rgba(0,0,0,.2); /* Sombra interior */
   background-size: 55%; /* Cambiamos el tamaño de la imagen */
-  border: 10px solid white;
 }
 
 #estilo{

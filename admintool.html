@@ -11,19 +11,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
-        <link rel="stylesheet" href="assets/style.css" />
+        <link rel="stylesheet" href="assets/turnstyle.css" />
         <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-        <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-        <!-- Acción sobre el botó con id=boton y actualizamos el div con id=capa -->
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $("#superboton").click(function(event) {
-                    $("#live-turn").load('/admintool.html #generalturn');
-                });
-            });
-        </script>
 	</head>
 	<body>
 		<div id="page-wrapper">
@@ -45,29 +36,21 @@
 					</nav>
 				</header>
 			<!-- Main -->
-            <div id='holo' style='display:block;'>
-                <button type="button" name="button" onclick="colocar(), mostrar(), ocultar()" id=""><span id="estilo">Dame mi turno</span></button>
+            <div id='holo';>
+                <button type="button" name="button" onclick="iniciar(), inicio()" id="superboton"><span id="estilo">Iniciar sistema</span></button>
             </div>
-            <div id='oculto' style='display:block;'>
+            <div id='oculto'>
                 <div class="generaldiv">
                     <div class="">
-                        <h3>Tu Turno</h3>
-                        <div id="static-turn">
-                        </div>
-                    </div>
-                    <div class="">
                         <h1>Turno en Vivo</h1>
-                        <div id="live-turn">
+                        <div id="generalturn">
+                            <span id="esto"></span>
                         </div>
                     </div>
-                    <button type="button" name="button" onclick="()" id="superboton"><span id="estilo">Prueba</span></button>
-                    <p>
-                        No te procupes <br/>
-                        Te avisaremos cuando tu turno se aproxime, <b>recuerda tener tus notificaciones activadas.</b><br/>
-                        <i>Se responsable y atiende tu turno cuando te corresponda.</i>
-                    </p>
-                    <div>Registration closes in <span id="time"></span> minutes!</div>
+                    <div>Turnos inician en <span id="time"></span></div>
                 </div>
+                <h1>El turno del usuario es:</h1>
+                <h2><span id="userturn"></span></h2>
             </div>
 		</div>
 
@@ -80,7 +63,6 @@
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
-            <script src="assets/js/script.js"></script>
             <script src="assets/js/turnscript.js"></script>
 
 	</body>

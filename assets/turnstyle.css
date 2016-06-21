@@ -1,0 +1,18 @@
+.generaldiv {
+    text-align: center;
+}
+#general-turn{
+    padding: 10px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 48px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+#estilo{
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    font-size: 24px;
+
+}
