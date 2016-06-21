@@ -1,3 +1,7 @@
+/**
+ * @author tglassesguy 
+ * @author camiloacosta 
+ */
 angular.module('TuturnoApp', ['ngCookies'])
     .controller('loginController', function($scope, $location, $cookies){
         $scope.usuarios = [
