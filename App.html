@@ -46,7 +46,7 @@
 				</header>
 			<!-- Main -->
             <div id='holo' style='display:block;'>
-                <button type="button" name="button" onclick="colocar(), mostrar(), ocultar()" id=""><span id="estilo">Dame mi turno</span></button>
+                <button type="button" name="button" onclick="app()"><span id="estilo">Dame mi turno</span></button>
             </div>
             <div id='oculto' style='display:block;'>
                 <div class="generaldiv">
@@ -60,7 +60,6 @@
                         <div id="liveturn">
                         </div>
                     </div>
-                    <button type="button" name="button" onclick="()" id="superboton"><span id="estilo">Prueba</span></button>
                     <p>
                         No te procupes <br/>
                         Te avisaremos cuando tu turno se aproxime, <b>recuerda tener tus notificaciones activadas.</b><br/>
@@ -81,6 +80,16 @@
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
             <script src="assets/js/script.js"></script>
-            <script src="assets/js/turnscript.js"></script>
+            	<script>
+			  // Initialize Firebase
+			  var config = {
+			    apiKey: "AIzaSyDKCIZupI3ME9Q3iwycfXpEM_3DtnIpXQY",
+			    authDomain: "tuturno-98d9e.firebaseapp.com",
+			    databaseURL: "https://tuturno-98d9e.firebaseio.com",
+			    storageBucket: "tuturno-98d9e.appspot.com",
+			  };
+			  firebase.initializeApp(config);
+			</script>
+			<script src="assets/js/userturn.js"></script>
 	</body>
 </html>

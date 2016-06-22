@@ -37,7 +37,6 @@
 				</header>
 			<!-- Main -->
             <div id='holo';>
-                <button type="button" name="button" onclick="iniciar(), inicio()" id="superboton"><span id="estilo">Iniciar sistema</span></button>
             </div>
             <div id='oculto'>
                 <div class="generaldiv">
@@ -50,6 +49,7 @@
                 </div>
                 <h1>El turno del usuario es:</h1>
                 <h2><span id="userturn"></span></h2>
+                <button type="button" name="button" onclick="iniciar(), countdown()" id="superboton"><span id="estilo">Iniciar / Reiniciar sistema</span></button>
             </div>
 		</div>
 
@@ -62,6 +62,17 @@
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
+			<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+			<script>
+			  // Initialize Firebase
+			  var config = {
+			    apiKey: "AIzaSyDKCIZupI3ME9Q3iwycfXpEM_3DtnIpXQY",
+			    authDomain: "tuturno-98d9e.firebaseapp.com",
+			    databaseURL: "https://tuturno-98d9e.firebaseio.com",
+			    storageBucket: "tuturno-98d9e.appspot.com",
+			  };
+			  firebase.initializeApp(config);
+			</script>
             <script src="assets/js/turnscript.js"></script>
 
 	</body>

@@ -1,12 +1,14 @@
-var turno = Math.floor(Math.random() * 7 + liveturn);
-var primero = 0;
-var liveturn =  Math.floor(Math.random() * 7 + 10);
+var console = 0;
+
+///
+
 var segundos =  Math.floor(Math.random() * 7 + 10);
 var notificacionuno = Math.floor(turno / 2);
 var falta = (turno - liveturn);
 var bool = 0;
 var notbool = 0;
 var otrosegundos = 60;
+
 
 function startTimer(duration, display) {
     var timer = duration, minutes, seconds;
@@ -21,63 +23,33 @@ function startTimer(duration, display) {
 
         if (--timer < 0) {
             timer = duration;
-            liveturn ++ ;
-            document.getElementById("generalturn").innerHTML = liveturn;
+            console ++ ;
+            document.getElementById("generalturn").innerHTML = console;
+            subir();
         };
-
-        if (turno == liveturn) {
-            bool ++;
-        };
-
-        if (bool == 1) {
-            alert("¡Es tu turno!");
-            fiveMinutes = 60 * 1;
-            bool ++;
-        }
-
-        if (liveturn == notificacionuno) {
-            notbool ++;
-        };
-
-        if (notbool == 1) {
-            alert("Te faltan " + falta + " turnos.");
-            notbool ++;
-        };
-
 
     }, 1000);
 };
 
+///
 
-function inicio() {
+function iniciar(){
+     
+    console = 0;
+    document.getElementById("generalturn").innerHTML = console;
     
-    document.getElementById("generalturn").innerHTML = primero;
-
 };
 
-function iniciar () {
+function countdown() {
+    
     var fiveMinutes = segundos * 1,
         display = document.querySelector('#time');
     startTimer(fiveMinutes, display);
 
 };
 
+///
 
-/* function prueba() {
-
-    document.getElementById("userturn").innerHTML = turns;
-
-}; */
-
-
-function turn() {
-    document.getElementById("static-turn").innerHTML = turno;
-};
-
-
-/* function colocar() {
-    document.getElementById("static-turn").innerHTML = turns;
-}*/
 
 function mostrar() {
 document.getElementById('oculto').style.display = 'block';
@@ -86,3 +58,15 @@ document.getElementById('oculto').style.display = 'block';
 function ocultar() {
 document.getElementById('holo').style.display = 'none';
 };
+
+function subir() {
+    
+    firebase.database().ref("/console").set(console);
+    
+};
+
+firebase.database().ref("user/").on("value", function (back) {
+    
+    document.getElementById("userturn").innerHTML = back.val();
+    
+});
