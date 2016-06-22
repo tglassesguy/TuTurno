@@ -15,15 +15,6 @@
         <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-        <!-- Acción sobre el botó con id=boton y actualizamos el div con id=capa -->
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $("#superboton").click(function(event) {
-                    $("#liveturn").load('/https://tuturno-javico.c9users.io/adminntool.html #generaldiv');
-                });
-            });
-        </script>
 	</head>
 	<body>
 		<div id="page-wrapper">
@@ -46,13 +37,13 @@
 				</header>
 			<!-- Main -->
             <div id='holo' style='display:block;'>
-                <button type="button" name="button" onclick="app()"><span id="estilo">Dame mi turno</span></button>
+                <button type="button" name="button" onclick="hola()"><span id="estilo">Dame mi turno</span></button>
             </div>
             <div id='oculto' style='display:block;'>
                 <div class="generaldiv">
                     <div class="">
                         <h3>Tu Turno</h3>
-                        <div id="static-turn">
+                        <div id="staticturn">
                         </div>
                     </div>
                     <div class="">
@@ -77,9 +68,9 @@
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
+			<script src="assets/js/userturns.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
-            <script src="assets/js/script.js"></script>
             	<script>
 			  // Initialize Firebase
 			  var config = {
@@ -90,6 +81,5 @@
 			  };
 			  firebase.initializeApp(config);
 			</script>
-			<script src="assets/js/userturn.js"></script>
 	</body>
 </html>
