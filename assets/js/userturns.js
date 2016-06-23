@@ -1,5 +1,6 @@
 var dataturn = 0;
 var userturn = 0;
+var status = false;
 
 function app(){
     
@@ -16,17 +17,31 @@ function turno(){
     
 };
 
-function app() {
-    
-    var
-    
-};
-
 function onload(){
 
-    firebase.database().ref('/console').on('value', function(snapshot){
+    comprobarestado(),
+    comprobarusario();
+};
 
-        dataturn = snapshot.val();
-
+function comprobarestado() {
+    
+    firebase.database().ref("/status").on("value", function (snapshot){
+        
+        status = snapshot.val();
+        estado();
     });
+};
+
+function estado() {
+    
+    if (status == "true"){
+        
+        firebase.database().ref("/console").on("value", function (snapshot){
+            
+            document.getElementById("liveturn").innerHTML = snapshot.val();
+        });
+    } else {
+        
+        alert("El servicio no está disponible, regrese mas tarde.");
+    };
 };

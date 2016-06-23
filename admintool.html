@@ -25,12 +25,7 @@
 					<nav id="nav">
 						<ul>
 							<li>
-								<a>Usuario</a>
-            						<ul>
-            							<li><a href="user.html">Perfil</a></li>
-            							<li><a href="config.html">Ajustes</a></li>
-            							<li><a href="close.html">Salir</a></li>
-            						</ul>
+								<a>Administrador</a>
 							</li>
 						</ul>
 					</nav>
@@ -49,7 +44,9 @@
                 </div>
                 <h1>El turno del usuario es:</h1>
                 <h2><span id="userturn"></span></h2>
-                <button type="button" name="button" onclick="iniciar(), countdown()" id="superboton"><span id="estilo">Iniciar / Reiniciar sistema</span></button>
+                <button type="button" name="button" onclick="iniciar()" id="superboton"><span id="estilo">Iniciar</span></button>
+                <button type="button" name="button" onclick="stop(), reload()" id="superboton"><span id="estilo">Stop</span></button>
+                <button type="button" name="button" onclick="continuar()" id="superboton"><span id="estilo">Continuar</span></button>
             </div>
 		</div>
 

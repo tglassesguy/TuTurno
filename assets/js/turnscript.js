@@ -1,5 +1,5 @@
 var console = 0;
-var status = 0;
+var status = false;
 
 ///
 
@@ -38,9 +38,49 @@ function iniciar(){
      
     console = 0;
     document.getElementById("generalturn").innerHTML = console;
-    status();
+    status = true;
+    estado(),
+    countdown();
     
 };
+
+///
+
+function stop(){
+    
+    renovar(), publish(), reload();
+
+};
+
+
+function reload() {
+    
+    window.location="https://tuturno-javico.c9users.io/admintool.html";
+    
+};
+
+function publish() {
+    
+    console = 0;
+    document.getElementById("generalturn").innerHTML = console;
+    subir();
+};
+
+function renovar() {
+    
+    status = false;
+    estado();
+};
+
+///
+
+function continuar(){
+    
+    countdown();
+    
+};
+
+///
 
 function countdown() {
     
@@ -52,25 +92,14 @@ function countdown() {
 
 ///
 
-function status() {
+function estado() {
     
-    var status = 1;
-    firebase.database().ref('/status').set(status);
+    firebase.database().ref("/status").set(status);
     
 };
 
 ///
 
-
-function mostrar() {
-document.getElementById('oculto').style.display = 'block';
-};
-
-function ocultar() {
-document.getElementById('holo').style.display = 'none';
-};
-
-///
 
 function subir() {
     
@@ -82,18 +111,45 @@ function subir() {
 
 function onload() {
     
-        firebase.database().ref("/status").on('value', function(snapshot){
-             status = snapshot.val();
-        });
+    firebase.database().ref("/status").on('value', function(snapshot){
+         status = snapshot.val();
+         comprobar();
+    });
     
 };
 
-if (status == 1){
+function comprobar() {
+
+    if (status == "true"){
     
     firebase.database().ref('/console').on('value', function(snapshot){
         
         console = snapshot.val();    
         document.getElementById("generalturn").innerHTML = console;
-        countdown();
-    });
+        
+        });
+        
+    } else {
+        console = 0;
+        document.getElementById("generalturn").innerHTML = console;
+    };
 };
+
+
+
+
+
+
+
+
+
+
+function mostrar() {
+document.getElementById('oculto').style.display = 'block';
+};
+
+function ocultar() {
+document.getElementById('holo').style.display = 'none';
+};
+
+///
