@@ -1,4 +1,5 @@
 var console = 0;
+var status = 0;
 
 ///
 
@@ -37,6 +38,7 @@ function iniciar(){
      
     console = 0;
     document.getElementById("generalturn").innerHTML = console;
+    status();
     
 };
 
@@ -50,6 +52,15 @@ function countdown() {
 
 ///
 
+function status() {
+    
+    var status = 1;
+    firebase.database().ref('/status').set(status);
+    
+};
+
+///
+
 
 function mostrar() {
 document.getElementById('oculto').style.display = 'block';
@@ -59,14 +70,30 @@ function ocultar() {
 document.getElementById('holo').style.display = 'none';
 };
 
+///
+
 function subir() {
     
     firebase.database().ref("/console").set(console);
     
 };
 
-firebase.database().ref("user/").on("value", function (back) {
+///
+
+function onload() {
     
-    document.getElementById("userturn").innerHTML = back.val();
+        firebase.database().ref("/status").on('value', function(snapshot){
+             status = snapshot.val();
+        });
     
-});
+};
+
+if (status == 1){
+    
+    firebase.database().ref('/console').on('value', function(snapshot){
+        
+        console = snapshot.val();    
+        document.getElementById("generalturn").innerHTML = console;
+        countdown();
+    });
+};

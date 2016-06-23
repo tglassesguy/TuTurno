@@ -37,7 +37,7 @@
 				</header>
 			<!-- Main -->
             <div id='holo' style='display:block;'>
-                <button type="button" name="button" onclick="hola()"><span id="estilo">Dame mi turno</span></button>
+                <button type="button" name="button" onclick="app()"><span id="estilo">Dame mi turno</span></button>
             </div>
             <div id='oculto' style='display:block;'>
                 <div class="generaldiv">
@@ -71,6 +71,7 @@
 			<script src="assets/js/userturns.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
+			<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
             	<script>
 			  // Initialize Firebase
 			  var config = {
@@ -80,6 +81,9 @@
 			    storageBucket: "tuturno-98d9e.appspot.com",
 			  };
 			  firebase.initializeApp(config);
+			</script>
+			<script>
+				onload();
 			</script>
 	</body>
 </html>
