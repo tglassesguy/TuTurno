@@ -1,5 +1,11 @@
 var console = 0;
 var status = false;
+var userturn = firebase.database().ref("/turn").on("value", function(snapshot) {
+    
+    userturn = snapshot.val();
+    document.getElementById("userturn").innerHTML = userturn;
+});
+var actividad = false;
 
 ///
 
@@ -49,6 +55,8 @@ function iniciar(){
 function stop(){
     
     renovar(), publish(), reload();
+    
+    firebase.database().ref("/actividad").set(actividad);
 
 };
 
@@ -110,7 +118,7 @@ function subir() {
 ///
 
 function onload() {
-    
+
     firebase.database().ref("/status").on('value', function(snapshot){
          status = snapshot.val();
          comprobar();
@@ -134,11 +142,6 @@ function comprobar() {
         document.getElementById("generalturn").innerHTML = console;
     };
 };
-
-
-
-
-
 
 
 

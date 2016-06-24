@@ -12,7 +12,9 @@ function app(){
     
     userturn = Math.floor(Math.random()*7 + dataturn + 50);
     document.getElementById("staticturn").innerHTML = userturn; 
-    user();
+    user(),
+    mostrarpost(),
+    ocultarboton();
 };
 
 function onload(){
@@ -39,7 +41,9 @@ function estado() {
             document.getElementById("liveturn").innerHTML = snapshot.val();
         });
     } else {
-        alert("Servicio no disponible.");
+        ocultarpost(),
+        ocultarboton(),
+        anuncio();
     };
 };
 
@@ -58,13 +62,14 @@ function unidos() {
         
         firebase.database().ref("/turn").on("value", function (snapshot) {
             
-            //aqui esta la funcion que hace desaparecer el boton
+            ocultarboton(),
+            mostrarpost();
             document.getElementById("staticturn").innerHTML = snapshot.val();
             
         });
         
         } else {
-            //aqui va la funcion que hace aparecer el boton.
+            mostrarboton();
         };
 };
 
@@ -74,4 +79,30 @@ function user() {
     firebase.database().ref("/turn").set(userturn),
     firebase.database().ref("/actividad").set(actividad);
     
+};
+
+function ocultarboton() {
+    
+    document.getElementById('boton').style.display = 'none';
+    
+};
+
+function ocultarpost() {
+    
+    document.getElementById('post').style.display = 'none';
+    
+};
+
+function mostrarpost() {
+    
+    document.getElementById("post").style.display = 'block';
+    
+};
+
+function mostrarboton() {
+    document.getElementById("boton").style.display = "block";
+};
+    
+function anuncio() {
+    document.getElementById("anuncio").innerHTML = "El servicio no está disponible";
 };
