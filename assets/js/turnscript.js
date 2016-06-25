@@ -3,16 +3,17 @@ var status = false;
 var mostrar  = 0;
 var notificacion = 0;
 var notificacion_two = 0;
+var notificacion_three = 0;
 var lol = 0;
 var ultimolol = 0;
 var gg = 0;
-var push_one = false;
-var push_two = false;
-var push_three = false;
+var push_one = 0;
+var push_two = 0;
+var push_three = 0;
 var final = 0;
 var empuja_one = 0;
 var empuja_two = 0;
-var final = firebase.database().ref("ultimolol").on("value", function (snapshot) {
+var final = firebase.database().ref("/ultimolol").on("value", function (snapshot) {
 
     ultimolol = snapshot.val();
     if (ultimolol == 5){
@@ -35,41 +36,38 @@ var notificacion_one= firebase.database().ref("/turn").on("value", function(snap
 
     notificacion = Math.floor(snapshot.val() /2);
     notificacion_two = Math.floor(notificacion/2);
+    notificacion_three = 0;
     document.getElementById("notification").innerHTML = notificacion;
     document.getElementById("notification_dos").innerHTML = notificacion_two;
-    variables();
 
 });
 
-function variables() {
-
-    empuja_one = notificacion;
-    empuja_two = notificacion_two;
-
-};
 
 var comprobacionlol = firebase.database().ref("/faltan").on("value", function(snapshot) {
 
-    if (snapshot.val() == empuja_one){
-
-        push_one= true;
-        firebase.database().ref("/push_one").set(push_one);
-        empuja_one ++;
+    if (snapshot.val() == notificacion){
+        
+        var faltan =  snapshot.val() + 1 ;
+        push_one= 1;
+        firebase.database().ref("/push_one").set(push_one),
+        firebase.database().ref("/faltan").set(faltan);
 
     } if (snapshot.val() == notificacion_two){
-
-        empuja_two ++;
-        push_two= true;
+        
+        var faltan =  snapshot.val() + 1 ;
+        push_two= 1;
         firebase.database().ref("/push_two").set(push_two);
+        firebase.database().ref("/faltan").set(faltan);
 
-    } if (snapshot.val() == final){
 
-        final ++;
-        push_three= true;
+    } if (snapshot.val() == notificacion_three){
+        
+        notificacion_three =  1 ;
+        push_three= 1;
         firebase.database().ref("/push_three").set(push_three);
+        finalizar();
     };
 });
-
 ///
 
 var falta = firebase.database().ref("/console").on("value", function(snapshot) {
@@ -88,8 +86,8 @@ var finish = firebase.database().ref("/ultimolol").on("value" , function(snapsho
 });
 
 function finalizar() {
-
-    if(ultimolol == 1){
+   
+    if(ultimolol == 5){
         ultimolol --;
         firebase.database().ref("/ultimolol").set(ultimolol);
         reload();

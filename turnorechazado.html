@@ -1,16 +1,10 @@
-<!DOCTYPE HTML>
-<!--
-	Landed by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
 	<head>
 		<title>TuTurno - AppWeb</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="shortcut icon" href="images/Logo3.png">
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="shortcut icon" href="images/Logo3.png">
 		<link rel="stylesheet" href="assets/css/main.css" />
         <link rel="stylesheet" href="assets/style.css" />
         <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -37,15 +31,15 @@
 					</nav>
 				</header>
 			<!-- Main -->
-			<div id='not' style='display:none;'>
-				<h1><span id="notyet">El servicio no está disponible.</span></h1>
+			<div id='yet' style='display:block;'>
+				<h1><span id="casa">Turno cancelado correctamente.</span></h1>
           	</div>
             <div id='set' style='display:none;'>
 				<h1><span id="notyet">Has cancelado tu turno.</span></h1>
                 <button type="button" name="button" href="index.html" id="superboton"><span id="estilo">Volver.</span></button>
           	</div>
-            <div id='boton' style='display:none;'>
-                <button type="button" name="button" onclick="app()" id="superboton"><span id="estilo">Dame mi turno</span></button>
+            <div id='boton' style='display:block;'>
+                <button type="button" name="button" onclick="redireccionar();" id="superboton"><span id="estilo">Inicio</span></button>
             </div>
             <div id='post' style='display:none;'>
                 <div class="generaldiv">
@@ -63,11 +57,11 @@
                     <p><span id="comentario" style="display: block;">
                         No te procupes <br/>
                         Te avisaremos cuando tu turno se aproxime, <b>recuerda tener tus notificaciones activadas.</b><br/>
-                        <i>Se responsable y atiende tu turno cuando te corresponda.</i>
-                        <button type="button" name="button" href="" onclick="turnorechazado();" id=""><span id="cancelar">Cancelar turno</span></button></span>
+                        <i>Se responsable y atiende tu turno cuando te corresponda.</i></span>
                         <div id="bonotes_exit" style="display: none;">
-                        	 <button type="button" name="button" href="" onclick="turnoaceptado();" id="aceptar"><span id="estilo">Aceptar turno</span></button>
-               				 <button type="button" name="button" onclick="turnorechazado();" id="rechazar"><span id="estilo">Cancelar turno</span></button>
+                            <span id="comentario_dos"></span>
+                        	 <button type="button" name="button" href="turnoacpetado.html" onclick="" id="superboton"><span id="estilo">Aceptar turno</span></button>
+               				 <button type="button" name="button" href="turnorechazado.html" onclick="" id="superboton"><span id="estilo">Cancelar turno</span></button>
                         </div>
                     </p>
                 </div>
@@ -81,7 +75,7 @@
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
-			<script src="assets/js/userturns.js"></script>
+			<script src="assets/js/aceptado.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
 			<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
@@ -98,5 +92,5 @@
 			<script>
 				onload();
 			</script>
-	</body>
+		</body>
 </html>

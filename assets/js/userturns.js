@@ -6,29 +6,21 @@ var faltan = 0;
 var ultimolol = 0;
 var lol = 0;
 var pull = false;
-var push_one = firebase.database().ref("/push_one").on("value", function(snapshot) {
-    alert("Te faltan " + faltan + " turnos, \n ¡faltan pocos!.");
-});
+var other = 0;
 
-var push_two = firebase.database().ref("/push_two").on("value", function(snapshot) {
-    alert("Te faltan " + faltan + " turnos, \n ¡faltan pocos!.");
-});
-
-var push_three = firebase.database().ref("/push_two").on("value", function(snapshot) {
-    alert("¡es tu turno!")
+var notificacion_two =  firebase.database().ref("/push_two").on("value", function(snapshot) {
+        
+    notificacionBasica();
+    
+    });
+    
+var notificacion_three = firebase.database().ref("/push_three").on("value", function(snapshot) {
+        
+    notificacionBasica();
     subirultimolol();
-});
+    
+    });
 
-var terminar = firebase.database().ref("/console").on("value", function(snapshot) {
-
-    if (userturn == snapshot.val())  {
-        alert("llego la hora del gran final");
-        document.getElementById("comentario").style.display = "none";
-        document.getElementById("bonotes_exit").style.display = "block";
-        document.getElementById("comentario_dos").innerHTML = notificar;
-        subirultimolol();
-    };
-});
 
 var notificar = "¡Es tu turno!";
 
@@ -56,6 +48,7 @@ function onload(){
         firebase.database().ref("/status").on("value", function (snapshot){
 
             status = snapshot.val();
+            comprobarpop(),
             cargaractividad();
 
         });
@@ -118,7 +111,8 @@ function comprobarestado() {
         document.getElementById("liveturn").innerHTML = dataturn;
         ocultaranuncio(),
         mostrarpost(),
-        ocultarboton();
+        ocultarboton(),
+        comprobarlol();
 
     };
 };
@@ -199,30 +193,119 @@ function pum(){
 };
 
 function subirultimolol() {
-
+    
+    document.getElementById("comentario").style.display = "none";
+    document.getElementById("bonotes_exit").style.display = "block";
+    document.getElementById("comentario_dos").innerHTML = "Es Tu Turno!";
     ultimolol = 5;
     firebase.database().ref("/ultimolol").set(ultimolol);
 };
 
-function push() {
 
-    pull = true
 
-    if (pull == true){
+////
 
-        pull = false;
-        alert("Te faltan " + faltan + " turnos, \n ¡faltan pocos!.");
-    } else {
-        alert("lo logramos");
+function notificacionBasica() {
+
+    var notification = null;
+    
+    if (!('Notification' in window)) {
+        // el navegador no soporta la API de notificaciones
+        alert('Su navegador no soporta la API de Notificaciones :(');
+        return;
+    } else if (Notification.permission === "granted") {
+        // Se puede emplear las notificaciones
+    
+        notification = new Notification( "Te faltan " + faltan + " Turnos");
+    
+    } else if (Notification.permission !== 'denied') {
+        // se pregunta al usuario para emplear las notificaciones
+        Notification
+                .requestPermission(function(permission) {
+            if (permission === "granted") {
+                notification = new Notification(
+                        "Notificaciones activadas");
+            }
+        });
     };
 
 };
 
+function notificacionBasicados() {
 
+    var notification = null;
+    
+    if (!('Notification' in window)) {
+        // el navegador no soporta la API de notificaciones
+        alert('Su navegador no soporta la API de Notificaciones :(');
+        return;
+    } else if (Notification.permission === "granted") {
+        // Se puede emplear las notificaciones
+    
+        notification = new Notification( "¡Es Tu Turno!");
+    
+    } else if (Notification.permission !== 'denied') {
+        // se pregunta al usuario para emplear las notificaciones
+        Notification
+                .requestPermission(function(permission) {
+            if (permission === "granted") {
+                notification = new Notification(
+                        "Notificaciones activadas");
+            }
+        });
+    };
 
+};
 
+function comprobarpop() {
+    
+    firebase.database().ref("/push_one").on("value", function(snapshot) {
 
+        other = snapshot.val();   
+        if (other == 1){
+              notificacionBasica();
+              other = 2;
+              firebase.database().ref("/push_one").set(other);
+        };
+    });
+    
+    firebase.database().ref("/push_two").on("value", function(snapshot) {
 
+        other = snapshot.val();   
+        if (other == 1){
+              notificacionBasica();
+              other = 2;
+              firebase.database().ref("/push_two").set(other);
+        };
+    });
+    
+    firebase.database().ref("/push_three").on("value", function(snapshot) {
 
+        other = snapshot.val();   
+        if (other == 1){
+              other = 2;
+              firebase.database().ref("/push_three").set(other);
+              subirultimolol();
+        };
+    });
+};
 
-////
+function turnoaceptado() {
+    
+    window.location="turnoaceptado.html";
+};
+
+function turnorechazado() {
+    window.location="turnorechazado.html"  
+};
+
+function comprobarlol() {
+    
+    firebase.database().ref("/ultimolol").on("value", function(snapshot) {
+        
+        if (snapshot.val() == 4) {
+            
+            subirultimolol();
+        };
+      });
+};
