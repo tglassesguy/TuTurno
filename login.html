@@ -12,11 +12,12 @@
 		<link rel="shortcut icon" href="images/logo3.png">
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="stylesheet" href="assets/style.css">
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	</head>
-	<body class="landing" ng-controller="loginController">
-		<div id="page-wrapper" style="display: none;">
+	<body class="" ng-controller="loginController">
+		<div id="page-wrapper" style="display:none;">
 
 			<!-- Header -->
 				<header id="header">
@@ -48,8 +49,8 @@
 						</div>
 		</div>
 		<!-- Scripts -->
-		<script src="assets/bower_components/angular/angular.js"></script>
-		<script src="assets/bower_components/angular-cookies/angular-cookies.js"></script>
+        <script src="assets/bower_components/angular/angular.js"></script>
+        <script src="assets/bower_components/angular-cookies/angular-cookies.js"></script>
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/jquery.scrolly.min.js"></script>
 		<script src="assets/js/jquery.dropotron.min.js"></script>
@@ -64,18 +65,18 @@
 				$('#page-wrapper').show();
 			});
 		</script>
-		 <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
-            	<script>
-			  // Initialize Firebase
-			  var config = {
-			    apiKey: "AIzaSyDKCIZupI3ME9Q3iwycfXpEM_3DtnIpXQY",
-			    authDomain: "tuturno-98d9e.firebaseapp.com",
-			    databaseURL: "https://tuturno-98d9e.firebaseio.com",
-			    storageBucket: "tuturno-98d9e.appspot.com",
-			  };
-			  firebase.initializeApp(config);
-			</script>
-			<script src="assets/js/login.js"></script>
-			<script> onload();</script>
+        <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+        <script>
+             // Initialize Firebase
+             var config = {
+               apiKey: "AIzaSyDKCIZupI3ME9Q3iwycfXpEM_3DtnIpXQY",
+               authDomain: "tuturno-98d9e.firebaseapp.com",
+               databaseURL: "https://tuturno-98d9e.firebaseio.com",
+               storageBucket: "tuturno-98d9e.appspot.com",
+             };
+             firebase.initializeApp(config);
+          </script>
+          <script src="assets/js/login.js"></script>
+          <script> onload();</script>
 	</body>
 </html>

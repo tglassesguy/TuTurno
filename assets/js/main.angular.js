@@ -1,6 +1,6 @@
 /**
- * @author tglassesguy 
- * @author camiloacosta 
+ * @author tglassesguy
+ * @author camiloacosta
  */
 angular.module('TuturnoApp', ['ngCookies'])
     .controller('loginController', function($scope, $location, $cookies){
@@ -45,20 +45,20 @@ angular.module('TuturnoApp', ['ngCookies'])
             { codigo: "99031507355" , contrasenia: "99031507355", name: 'DIAZ RIAÑO GERALDINE TATIANA' },
             { codigo: "99060607695" , contrasenia: "99060607695", name: 'TAMA GARCÍA YANDRY DAYANA' },
         ];
-        
+
         $scope.errors = {
             NONE: '',
             WRONG_USER: 'No se encontró el usuario especificado',
             WRONG_PASS: 'La contraseña especificada es incorrecta',
         }
-        
+
         $scope.usuario = {
             codigo: '',
             contrasenia: '',
             hasError: false,
             error: ''
         };
-        
+
         findUser = function(cod){
             u = false;
             angular.forEach($scope.usuarios, function(el, k){
@@ -68,7 +68,7 @@ angular.module('TuturnoApp', ['ngCookies'])
             });
             return u;
         }
-        
+
         $scope.login = function(){
             var u = findUser($scope.usuario.codigo);
             if(!u){
@@ -79,13 +79,13 @@ angular.module('TuturnoApp', ['ngCookies'])
                     $scope.usuario.hasError = true;
                     $scope.usuario.error = $scope.errors.WRONG_PASS;
                 }else{
-                    window.location.href = '/user.html';
+                    window.location.href = 'App.html';
                     $cookies.put('user.name', u.name);
                     $scope.usuario.hasError = false;
                 }
             }
         }
-        
+
     })
     .controller('userController', function($scope, $cookies){
         var name = $cookies.get('user.name');

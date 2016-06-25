@@ -18,6 +18,18 @@ var push_three = firebase.database().ref("/push_two").on("value", function(snaps
     alert("¡es tu turno!")
     subirultimolol();
 });
+
+var terminar = firebase.database().ref("/console").on("value", function(snapshot) {
+
+    if (userturn == snapshot.val())  {
+        alert("llego la hora del gran final");
+        document.getElementById("comentario").style.display = "none";
+        document.getElementById("bonotes_exit").style.display = "block";
+        document.getElementById("comentario_dos").innerHTML = notificar;
+        subirultimolol();
+    };
+});
+
 var notificar = "¡Es tu turno!";
 
 
@@ -181,15 +193,15 @@ function ocultaranuncio() {
 };
 
 
+
 function pum(){
     alert("Te faltan " + faltan + " turnos, \n ¡faltan pocos!.");
 };
 
 function subirultimolol() {
 
-    document.getElementById("comentario").style.display = none;
-    document.getElementById("comentario_dos").innerHTML = notificar;
-    document.getElementById("bonotes_exit").style.display = block;
+    ultimolol = 5;
+    firebase.database().ref("/ultimolol").set(ultimolol);
 };
 
 function push() {
