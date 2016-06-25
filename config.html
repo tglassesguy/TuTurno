@@ -11,6 +11,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
+		 <link rel="stylesheet" href="assets/style.css">
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	</head>
@@ -22,6 +23,7 @@
 					<h1 id="logo"><a href="index.html">TuTurno</a></h1>
 					<nav id="nav">
 						<ul>
+							<div class="stickyfloat_element" id="esto"><span id="bam"></span></div>
 							<li>
 								<a>Usuario</a>
 										<ul>
@@ -35,7 +37,11 @@
 				</header>
 
 			<!-- Main -->
-
+			
+			<div id='not'>
+				<h1><span id="notyet">Configuracion disponible proximamente...</span></h1>
+          	</div>
+	
 		</div>
 
 		<!-- Scripts -->
@@ -47,7 +53,7 @@
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
-            <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+             <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
             	<script>
 			  // Initialize Firebase
 			  var config = {
@@ -58,6 +64,8 @@
 			  };
 			  firebase.initializeApp(config);
 			</script>
+			<script src="assets/js/config.js"></script>
+			<script> onload();</script>
 
 	</body>
 </html>
