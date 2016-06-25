@@ -1,21 +1,23 @@
 .generaldiv {
     text-align: center;
 }
-#static-turn{
+#staticturn{
+    
     padding: 50px;
     padding-top: 20px;
     color: white;
     font-family: 'Montserrat', sans-serif;
     font-size: 72px;
+    padding-bottom: 70px;
 
 }
 
-#live-turn{
+#liveturn{
     padding: 10px;
     color: white;
     font-family: 'Montserrat', sans-serif;
-    font-size: 48px;
-    padding-bottom: 20px;
+    font-size: 38px;
+    padding-bottom: 10%;
     padding-top: 20px;
 }
 #superboton {
@@ -42,4 +44,39 @@
     color: white;
     font-size: 24px;
 
+}
+
+#vivoturno{
+    margin-top: 50px;
+    color: #B33232;
+    font-style: italic;
+    font-size: 25px;
+}
+
+#turnoquieto{
+    margin-top: 8%;
+}
+
+#dentroturno{
+    font-size: 36px;
+}
+
+#not{
+    color: red;
+    padding-top: 20%;
+    text-align: center;
+    font-size: 65px;
+    text-shadow: -1px -1px 17px rgba(0, 0, 0, 0.68);
+    
+}
+
+#notyet{
+    color: #B50C0C;
+}
+
+#boton{
+    
+padding-top: 125px;
+    text-align: center;
+    
 }
